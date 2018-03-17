@@ -24,6 +24,9 @@ describe('DataScraper', () => {
         description: '.content p',
         something: '.thatisnotthere',
         image: $ => $('img').attr('src')
+      },
+      BODY: {
+        info: body => JSON.parse(body.match(/\>({.*})\</)[1])
       }
     },
     'http://test.de/something/else': {
@@ -108,5 +111,17 @@ describe('DataScraper', () => {
       report
     })
     expect(report).toHaveBeenCalledWith('DataScraperError', 'No Mapping found for URL.')
+  })
+
+  it('also offers body string matching possibilities', () => {
+    const report = jest.fn()
+    app.process({
+      body: testpage,
+      url: new URL('http://test.de/expose/something/123456'),
+      report
+    })
+    expect(report).toHaveBeenCalledWith('data', expect.objectContaining({
+      info: { some: 'info' }
+    }))
   })
 })

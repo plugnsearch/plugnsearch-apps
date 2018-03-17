@@ -9,6 +9,7 @@ export default class Scraper {
     const $ = cheerio.load(html)
     return this.postProcess({
       ...(this.mapping.FIX || {}),
+      ...this.parseBODY(this.mapping.BODY || {}, html),
       ...this.parseHTML(this.mapping.HTML || {}, html, $),
       ...this.parseOG(this.mapping.OG || {}, html, $)
     })
@@ -60,6 +61,16 @@ export default class Scraper {
           result[key] = null
         }
       }
+    })
+
+    return result
+  }
+
+  parseBODY (mapping, html) {
+    const result = {}
+
+    Object.keys(mapping).forEach(key => {
+      result[key] = mapping[key](html)
     })
 
     return result
