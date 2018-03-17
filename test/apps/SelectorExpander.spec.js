@@ -21,11 +21,11 @@ describe('SelectorExpander', () => {
 
   beforeEach(() => {
     app = new SelectorExpander({
-      paginationSelector: '.pagination a'
+      expandSelector: '.pagination a'
     })
   })
 
-  it('uses the paginationSelector to get the links', done => {
+  it('uses the expandSelector to get the links', done => {
     const $ = cheerio.load(BODY)
     expect.assertions(1)
     app.process({
@@ -44,7 +44,7 @@ describe('SelectorExpander', () => {
 
   it('does not expand anything if no matching selectors are found', done => {
     app = new SelectorExpander({
-      paginationSelector: '.no-pagination a'
+      expandSelector: '.no-pagination a'
     })
     const $ = cheerio.load(BODY)
     expect.assertions(1)

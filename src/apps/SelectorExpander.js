@@ -18,12 +18,12 @@ function makeUrlAbsolute (baseUrl, url) {
 export default class HTTPLinkExpander {
   name = 'HTTPLinkExpander'
 
-  constructor ({ paginationSelector } = {}) {
-    this.paginationSelector = paginationSelector
+  constructor ({ expandSelector } = {}) {
+    this.expandSelector = expandSelector
   }
 
   process ({ $, url, queueUrls }) {
-    const links = $(this.paginationSelector)
+    const links = $(this.expandSelector)
       .map((i, link) => $(link).attr('href'))
       .get()
       .map(path => makeUrlAbsolute(url.toString(), path))
