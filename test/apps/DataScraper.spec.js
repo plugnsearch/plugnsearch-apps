@@ -80,6 +80,25 @@ describe('DataScraper', () => {
     }))
   })
 
+  it('normalizes the mapping keys', function() {
+    const dataMapping = {
+      'http://www.test.de/expose': MAPPING['http://test.de/expose']
+    }
+    app = new DataScraper({ dataMapping })
+    const report = jest.fn()
+    app.process({
+      body: testpage,
+      url: 'http://test.de/expose/something/123456',
+      report
+    })
+    expect(report).toHaveBeenCalledWith('data', expect.objectContaining({
+      type: 'Offer',
+      foo: 'Bar',
+      title: 'A better Title',
+      myName: 'Name',
+      description: 'Desc'
+    }))
+  });
 
   it('reports error if no mapping is found for given URL', () => {
     const report = jest.fn()

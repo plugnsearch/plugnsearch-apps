@@ -1,10 +1,14 @@
+import { URL } from 'plugnsearch'
 import Scraper from '../Scraper'
 
 export default class DataScraper {
   noCheerio = true
 
   constructor ({ dataMapping }) {
-    this.dataMapping = dataMapping
+    this.dataMapping = Object.keys(dataMapping).reduce((memo, url) => ({
+      ...memo,
+      [(new URL(url)).normalizedHref]: dataMapping[url]
+    }), {})
   }
 
   findMappingForUrl (url) {
