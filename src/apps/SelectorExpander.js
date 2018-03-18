@@ -15,8 +15,8 @@ function makeUrlAbsolute (baseUrl, url) {
  * It won't find links outside an <a>-element and omits all non-http-links, like
  * mailto- or tel-links.
  */
-export default class HTTPLinkExpander {
-  name = 'HTTPLinkExpander'
+export default class SelectorExpander {
+  name = 'SelectorExpander'
 
   constructor ({ expandSelector } = {}) {
     this.expandSelector = expandSelector
