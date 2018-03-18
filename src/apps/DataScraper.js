@@ -2,6 +2,7 @@ import { URL } from 'plugnsearch'
 import Scraper from '../Scraper'
 
 export default class DataScraper {
+  name = 'DataScraper'
   noCheerio = true
 
   constructor ({ dataMapping }) {
