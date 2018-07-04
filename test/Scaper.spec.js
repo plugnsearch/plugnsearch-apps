@@ -1,7 +1,7 @@
 /* eslint-env jest */
-import fs from 'fs'
-import path from 'path'
-import Scraper from '../src/Scraper'
+const fs = require('fs')
+const path = require('path')
+const Scraper = require('../src/Scraper')
 
 describe('Scraper', () => {
   let testpage

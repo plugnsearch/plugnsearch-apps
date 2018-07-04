@@ -1,8 +1,10 @@
-import { dataExtractor } from 'plugnsearch'
+const { dataExtractor } = require('plugnsearch')
 
-export default class MetaDataExtractor {
-  name = 'MetaDataExtractor'
-  noCheerio = true
+module.exports = class MetaDataExtractor {
+  constructor () {
+    name = 'MetaDataExtractor'
+    noCheerio = true
+  }
 
   process ({ body, report }) {
     return dataExtractor(body)

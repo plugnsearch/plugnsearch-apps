@@ -1,8 +1,8 @@
 /* eslint-env jest */
-import fs from 'fs'
-import path from 'path'
-import { URL } from 'plugnsearch'
-import DataScraper from '../../src/apps/DataScraper'
+const fs = require('fs')
+const path = require('path')
+const { URL } = require('plugnsearch')
+const { DataScraper } = require('../../')
 
 describe('DataScraper', () => {
   let testpage

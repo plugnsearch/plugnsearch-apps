@@ -1,6 +1,6 @@
-import cheerio from 'cheerio'
+const cheerio = require('cheerio')
 
-export default class Scraper {
+module.exports = class Scraper {
   constructor (mapping) {
     this.mapping = mapping
   }

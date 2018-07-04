@@ -1,11 +1,11 @@
-import { URL } from 'plugnsearch'
-import Scraper from '../Scraper'
+const { URL } = require('plugnsearch')
+const Scraper = require('../Scraper')
 
-export default class DataScraper {
-  name = 'DataScraper'
-  noCheerio = true
-
+module.exports = class DataScraper {
   constructor ({ dataMapping }) {
+    this.name = 'DataScraper'
+    this.noCheerio = true
+
     this.dataMapping = Object.keys(dataMapping).reduce((memo, url) => ({
       ...memo,
       [(new URL(url)).normalizedHref]: dataMapping[url]

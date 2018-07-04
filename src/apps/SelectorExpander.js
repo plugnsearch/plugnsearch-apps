@@ -1,5 +1,5 @@
-import { URL as NodeURL } from 'url'
-import { URL } from 'plugnsearch'
+const NodeURL = require('url').URL
+const { URL } = require('plugnsearch')
 
 /**
  * Ensures that returned url is an aboslute one. If given url is relative, it uses
@@ -15,10 +15,9 @@ function makeUrlAbsolute (baseUrl, url) {
  * It won't find links outside an <a>-element and omits all non-http-links, like
  * mailto- or tel-links.
  */
-export default class SelectorExpander {
-  name = 'SelectorExpander'
-
+module.exports = class SelectorExpander {
   constructor ({ expandSelector } = {}) {
+    this.name = 'SelectorExpander'
     this.expandSelector = expandSelector
   }
 

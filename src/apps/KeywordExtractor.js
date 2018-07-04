@@ -1,10 +1,10 @@
-import Occurences from 'occurences'
+const Occurences = require('occurences')
 
-export default class KeywordExtractor {
-  name = 'KeywordExtractor'
-  noCheerio = true
-
+module.exports = class KeywordExtractor {
   constructor ({ keywords }) {
+    this.name = 'KeywordExtractor'
+    this.noCheerio = true
+
     this.keywords = keywords
   }
 

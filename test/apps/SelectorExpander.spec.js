@@ -1,7 +1,7 @@
 /* eslint-env jest */
-import cheerio from 'cheerio'
-import { URL } from 'plugnsearch'
-import SelectorExpander from '../../src/apps/SelectorExpander'
+const cheerio = require('cheerio')
+const { URL } = require('plugnsearch')
+const { SelectorExpander } = require('../../')
 
 const BODY = `
 <html>
