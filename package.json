@@ -45,6 +45,6 @@
   },
   "peerDependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "plugnsearch": "^1.0.0"
+    "@plugnsearch/core": "^1.0.0"
   }
 }
