@@ -1,6 +1,6 @@
 /* eslint-env jest */
 const cheerio = require("cheerio");
-const { URL } = require("@plugnsearch/core");
+const { URL } = require("plugnsearch-core");
 const { SelectorExpander } = require("../../");
 
 const BODY = `

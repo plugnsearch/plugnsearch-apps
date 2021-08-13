@@ -1,4 +1,4 @@
-const { dataExtractor } = require("@plugnsearch/core");
+const { dataExtractor } = require("plugnsearch-core");
 
 module.exports = class MetaDataExtractor {
   constructor() {

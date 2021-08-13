@@ -1,5 +1,5 @@
 const NodeURL = require("url").URL;
-const { URL } = require("@plugnsearch/core");
+const { URL } = require("plugnsearch-core");
 
 /**
  * Ensures that returned url is an aboslute one. If given url is relative, it uses

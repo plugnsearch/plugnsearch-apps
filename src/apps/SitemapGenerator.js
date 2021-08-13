@@ -1,5 +1,5 @@
 const { URL } = require("url");
-const { dataExtractor, linkExtractor } = require("@plugnsearch/core");
+const { dataExtractor, linkExtractor } = require("plugnsearch-core");
 
 module.exports = class SitemapGenerator {
   constructor() {

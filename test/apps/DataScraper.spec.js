@@ -1,7 +1,7 @@
 /* eslint-env jest */
 const fs = require("fs");
 const path = require("path");
-const { URL } = require("@plugnsearch/core");
+const { URL } = require("plugnsearch-core");
 const { DataScraper } = require("../../");
 
 describe("DataScraper", () => {

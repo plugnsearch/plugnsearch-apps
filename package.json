@@ -1,5 +1,5 @@
 {
-  "name": "@plugnsearch/apps",
+  "name": "plugnsearch-apps",
   "version": "1.0.0",
   "description": "The only real plugable webspider / webcrawler to search the web for stuff you need.",
   "main": "index.js",
@@ -45,6 +45,6 @@
   },
   "peerDependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "@plugnsearch/core": "^1.0.0"
+    "plugnsearch-core": "^1.0.0"
   }
 }

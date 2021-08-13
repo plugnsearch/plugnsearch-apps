@@ -1,4 +1,4 @@
-const { URL } = require("@plugnsearch/core");
+const { URL } = require("plugnsearch-core");
 const Scraper = require("../Scraper");
 
 module.exports = class DataScraper {
