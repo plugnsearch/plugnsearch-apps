@@ -1,15 +1,14 @@
-const { dataExtractor } = require('plugnsearch')
+const { dataExtractor } = require("@plugnsearch/core");
 
 module.exports = class MetaDataExtractor {
-  constructor () {
-    name = 'MetaDataExtractor'
-    noCheerio = true
+  constructor() {
+    name = "MetaDataExtractor";
+    noCheerio = true;
   }
 
-  process ({ body, report }) {
-    return dataExtractor(body)
-      .then(meta => {
-        report('meta', meta)
-      })
+  process({ body, report }) {
+    return dataExtractor(body).then((meta) => {
+      report("meta", meta);
+    });
   }
-}
+};

@@ -1,7 +1,7 @@
 /* eslint-env jest */
-const cheerio = require('cheerio')
-const { URL } = require('plugnsearch')
-const { SelectorExpander } = require('../../')
+const cheerio = require("cheerio");
+const { URL } = require("@plugnsearch/core");
+const { SelectorExpander } = require("../../");
 
 const BODY = `
 <html>
@@ -14,47 +14,47 @@ const BODY = `
   </ul>
 </body>
 </html>
-`
+`;
 
-describe('SelectorExpander', () => {
-  let app
+describe("SelectorExpander", () => {
+  let app;
 
   beforeEach(() => {
     app = new SelectorExpander({
-      expandSelector: '.pagination a'
-    })
-  })
+      expandSelector: ".pagination a",
+    });
+  });
 
-  it('uses the expandSelector to get the links', done => {
-    const $ = cheerio.load(BODY)
-    expect.assertions(1)
+  it("uses the expandSelector to get the links", (done) => {
+    const $ = cheerio.load(BODY);
+    expect.assertions(1);
     app.process({
       $,
-      url: new URL('http://some.rainbow.com/over-it/of-course'),
+      url: new URL("http://some.rainbow.com/over-it/of-course"),
       queueUrls: (urls) => {
         expect(urls).toEqual([
-          'http://some.rainbow.com/test.de?page=1',
-          'http://some.rainbow.com/over-it/test.de?page=2',
-          'http://somewhere.else.com/test.de?page=3'
-        ])
-        done()
-      }
-    })
-  })
+          "http://some.rainbow.com/test.de?page=1",
+          "http://some.rainbow.com/over-it/test.de?page=2",
+          "http://somewhere.else.com/test.de?page=3",
+        ]);
+        done();
+      },
+    });
+  });
 
-  it('does not expand anything if no matching selectors are found', done => {
+  it("does not expand anything if no matching selectors are found", (done) => {
     app = new SelectorExpander({
-      expandSelector: '.no-pagination a'
-    })
-    const $ = cheerio.load(BODY)
-    expect.assertions(1)
+      expandSelector: ".no-pagination a",
+    });
+    const $ = cheerio.load(BODY);
+    expect.assertions(1);
     app.process({
       $,
-      url: new URL('http://some.rainbow.com/over-it/of-course'),
+      url: new URL("http://some.rainbow.com/over-it/of-course"),
       queueUrls: (urls) => {
-        expect(urls).toEqual([])
-        done()
-      }
-    })
-  })
-})
+        expect(urls).toEqual([]);
+        done();
+      },
+    });
+  });
+});

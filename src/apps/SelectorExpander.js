@@ -1,13 +1,13 @@
-const NodeURL = require('url').URL
-const { URL } = require('plugnsearch')
+const NodeURL = require("url").URL;
+const { URL } = require("@plugnsearch/core");
 
 /**
  * Ensures that returned url is an aboslute one. If given url is relative, it uses
  * the base of baseUrl to make it absolute.
  */
-function makeUrlAbsolute (baseUrl, url) {
-  const urlObject = new NodeURL(url, baseUrl)
-  return urlObject.href
+function makeUrlAbsolute(baseUrl, url) {
+  const urlObject = new NodeURL(url, baseUrl);
+  return urlObject.href;
 }
 
 /**
@@ -16,17 +16,17 @@ function makeUrlAbsolute (baseUrl, url) {
  * mailto- or tel-links.
  */
 module.exports = class SelectorExpander {
-  constructor ({ expandSelector } = {}) {
-    this.name = 'SelectorExpander'
-    this.expandSelector = expandSelector
+  constructor({ expandSelector } = {}) {
+    this.name = "SelectorExpander";
+    this.expandSelector = expandSelector;
   }
 
-  process ({ $, url, queueUrls }) {
+  process({ $, url, queueUrls }) {
     const links = $(this.expandSelector)
-      .map((i, link) => $(link).attr('href'))
+      .map((i, link) => $(link).attr("href"))
       .get()
-      .map(path => makeUrlAbsolute(url.toString(), path))
+      .map((path) => makeUrlAbsolute(url.toString(), path));
 
-    queueUrls(links)
+    queueUrls(links);
   }
-}
+};
